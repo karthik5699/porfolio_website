@@ -87,14 +87,7 @@ else href = "/"
 </html>
 
 <script is:inline>
-const theme = (() => {
-  if (typeof localStorage !== "undefined" && localStorage.getItem("theme"))
-    return localStorage.getItem("theme")
-
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-    return "dark"
-  else return "light"
-})()
+const theme = "dark"
 
 if (theme === "light")
   document.documentElement.classList.remove("dark")
@@ -103,14 +96,6 @@ else document.documentElement.classList.add("dark")
 window.localStorage.setItem("theme", theme)
 </script>
 
-<script>
-import { loglib } from "@loglib/tracker"
-
-loglib.record({
-  id: "www_nexxel",
-  host: "https://www.loglib.io",
-})
-</script>
 
 <style is:global>
 @font-face {

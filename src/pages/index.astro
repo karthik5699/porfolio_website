@@ -5,36 +5,52 @@ import Link from "../components/Link.vue"
 import Base from "../layouts/Base.astro"
 import Project from "../components/Project.astro"
 import PostRow from "../components/PostRow.astro"
-import { getProjects } from "../lib/projects"
 
-const projects = await getProjects(6)
 const posts = sortPostsByDate(await getCollection("blog", ({ data }) => data.isDraft !== true))
   .slice(0, 4)
 
-const title = "nexxel • home"
+  const projects = [
+    {
+      repo: "Real Estate",
+      description: "List your properties.",
+      link: "https://realtor-app-iota.vercel.app/"
+    },
+    {
+      repo: "Coin Sight",
+      description: "Track your coins.",
+      link: "https://crypto-app-two-rust.vercel.app/"
+    },
+    {
+      repo: "Others ⤴ ",
+      description: "Github",
+      link: "https://github.com/karthik5699?tab=repositories"
+    }
+  ]
+
+const title = "katic • home"
 ---
 
 <Base
   {title}
-  description="Personal website and blog of Shoubhit Dash aka nexxel."
-  image="https://og.nxl.sh/home"
+  description="Personal website and blog of Karthik Singh aka katic."
+  image=""
 >
   <h1 slot="header-content" class="text-neutral-600 dark:text-neutral-500">
-    nexxel
+    katic
   </h1>
 
    <main class="prose">
       <p>
         <small class="text-neutral-600 dark:text-neutral-500"
-          >IPA &nbsp; /ˈnɛks ɛl/ — no meaning, i made it up</small
+          >seeking the intimacy ➰ of being understood</small
         >
         <br />
 
-        Hi there, I'm <strong>Shoubhit</strong> aka <strong>nexxel</strong>. I'm 18 y/o and going to university soon. I like <strong>shuffling cards</strong> and <strong>building things</strong>. I enjoy <strong>language design</strong>, <strong>web development</strong> and I live on the <strong>terminal</strong>.
+        Hi there, I'm <strong>Karthik Singh</strong>, but on the internet, I usually go by <strong>katic</strong>. Here, I share my experiences, ideas, projects, and other fun things that I do in my life.
       </p>
 
       <p>
-        Right now I'm building a <strong>journal app</strong>, learning <strong>OCaml</strong>, writing <strong>blog</strong> posts and going to the <strong>gym</strong> regularly.
+        I'm building <strong>Stoick</strong>, a research tool designed to help investors make more informed decisions in the <strong>stock market</strong>. If you're interested in collaborating, feel free to reach out to me on any of my socials below.
       </p>
 
       <div class="mt-12" />
@@ -43,6 +59,7 @@ const title = "nexxel • home"
       <div class="grid grid-cols-2 gap-4 md:grid-cols-3">
         {projects.map(project => <Project {project} />)}
       </div>
+      
 
       <div class="mt-12" />
       <h2>Blog</h2>
